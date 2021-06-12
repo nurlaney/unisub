@@ -8,6 +8,7 @@ import Layout from "./modules/pages/Layout";
 import { PrivateRoute } from "./modules/PrivateRoute";
 import { useState } from "react";
 import { SpeedDialComponent } from "./modules/SpeedDial";
+import { reminderService } from "./modules/pages/Reminder/reminderService";
 // import { loginService } from "./modules/pages/Login/service";
 
 function App() {
@@ -16,6 +17,12 @@ function App() {
   // useEffect(() => {
   //   loginService.checkUserExist(JSON.parse(token));
   // }, []);
+
+  useEffect(() =>{
+    reminderService.getReminder().then((res) => {
+      console.log(res)
+    })
+  },[])
 
   const [timelineView, setTimelineView] = useState(true);
 
