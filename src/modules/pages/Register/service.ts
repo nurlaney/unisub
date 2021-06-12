@@ -1,4 +1,4 @@
-import { HttpClient } from "../../httpClient/index";
+import { HttpClient } from "../../httpClient/userHttpClient";
 
 class RegisterService extends HttpClient {
   constructor() {
