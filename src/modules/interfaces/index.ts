@@ -9,7 +9,7 @@ export interface IUser {
 export interface IReminder {
   id: number;
   platformName: string;
-  endDate: string;
+  expDate: string;
   price: number;
   userId: number;
 }

@@ -2,11 +2,15 @@
   width: 100%;
   background-color: #779fa1;
   padding: 5px;
-  position: fixed;
   bottom: 0;
   text-align: center;
   h5 {
     color: white;
     font-size: 13px;
   }
+}
+
+.container {
+  min-height: calc(100vh - 93px);
+  padding: 50px 0;
 }

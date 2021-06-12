@@ -8,11 +8,9 @@ import Layout from "./modules/pages/Layout";
 import { PrivateRoute } from "./modules/PrivateRoute";
 import { useState } from "react";
 import { SpeedDialComponent } from "./modules/SpeedDial";
-<<<<<<< HEAD
 import { AddReminder } from "./modules/pages/AddReminder";
-=======
-import { reminderService } from "./modules/pages/Reminder/reminderService";
->>>>>>> 70298ef3091ea460fb5c86094b4785da1d817c7f
+import { useDispatch } from "react-redux";
+import { getReminder } from "./modules/pages/Reminder/actions";
 // import { loginService } from "./modules/pages/Login/service";
 
 function App() {
@@ -22,11 +20,10 @@ function App() {
   //   loginService.checkUserExist(JSON.parse(token));
   // }, []);
 
-  useEffect(() =>{
-    reminderService.getReminder().then((res) => {
-      console.log(res)
-    })
-  },[])
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getReminder(dispatch);
+  }, [dispatch]);
 
   const [timelineView, setTimelineView] = useState(true);
 
