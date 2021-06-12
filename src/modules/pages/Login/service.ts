@@ -2,12 +2,16 @@ import { HttpClient } from "../../httpClient/index";
 
 class LoginService extends HttpClient {
   constructor() {
-    super("http://api.openweathermap.org");
+    super("http://172.28.0.167:8080");
   }
 
-  register(data: any) {
-    return this.post("login", data);
+  login(data: any) {
+    return this.post("api/login", data);
+  }
+
+  checkUserExist(token: any) {
+    return this.get("api/check", token);
   }
 }
 
-export const weatherService = new LoginService();
+export const loginService = new LoginService();

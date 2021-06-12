@@ -1,0 +1,38 @@
+.cardView {
+  position: relative;
+  padding: 10px;
+  background-color: #e9c46a;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  border-radius: 5px;
+  label,
+  p {
+    margin: 0;
+  }
+  label {
+    color: gray;
+    margin-top: 5px;
+  }
+  p {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    margin-left: 5px;
+  }
+  .exp-date {
+    text-align: center;
+    p {
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      text-align: center;
+      text-decoration: dashed;
+    }
+  }
+  .actions {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+}

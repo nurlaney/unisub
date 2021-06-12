@@ -1,0 +1,42 @@
+nav {
+  background-color: #779fa1;
+  color: white;
+}
+.navbar-nav {
+  width: 100%;
+}
+.navbar-nav li {
+  margin-right: 40px !important;
+  font-weight: normal;
+  padding: 10px 0;
+}
+
+.navbar-nav a {
+  color: white !important;
+}
+
+.navbar-nav a {
+  position: relative;
+  text-transform: uppercase;
+  color: white;
+  transition: width 0.2s ease-out;
+  font-size: 15px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: white;
+    transition: width 0.2s ease-out;
+  }
+}
+.navbar-nav li:hover a::after {
+  width: 100%;
+}
+
+.navbar-nav a {
+  text-decoration: none;
+}
