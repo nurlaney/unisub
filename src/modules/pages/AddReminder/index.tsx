@@ -3,23 +3,32 @@ import React from "react";
 import * as Yup from "yup";
 import { motion } from "framer-motion";
 import { TextField } from "@material-ui/core";
+import { addReminder } from "../Reminder/actions";
+import { useDispatch } from "react-redux";
 
 export const AddReminder = () => {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       platformName: "",
-      endDate: "",
+      expDate: "",
       price: "",
     },
     validationSchema: Yup.object({
       platformName: Yup.string()
         .max(15, "Must be 15 characters or less")
         .required("Required"),
-      endDate: Yup.date(),
+      expDate: Yup.date(),
       price: Yup.string().required("Required"),
     }),
     onSubmit: (values) => {
-      console.log(values);
+      const payload = {
+        ...values,
+        id: 20,
+        userId: 45,
+      };
+      const dispatchAddOrder = addReminder(dispatch);
+      dispatchAddOrder(payload);
     },
   });
   return (
@@ -57,16 +66,16 @@ export const AddReminder = () => {
             <TextField
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              value={formik.values.endDate}
-              id="endDate"
+              value={formik.values.expDate}
+              id="expDate"
               label="Exp. Date"
               type="date"
               InputLabelProps={{
                 shrink: true,
               }}
             />
-            {formik.touched.endDate && formik.errors.endDate ? (
-              <div className="text-danger mt-2">{formik.errors.endDate}</div>
+            {formik.touched.expDate && formik.errors.expDate ? (
+              <div className="text-danger mt-2">{formik.errors.expDate}</div>
             ) : null}
 
             <TextField

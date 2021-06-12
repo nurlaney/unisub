@@ -5,7 +5,6 @@ export interface IUser {
   email: string;
   reminders: IReminder[];
 }
-
 export interface IReminder {
   id: number;
   platformName: string;
@@ -13,7 +12,6 @@ export interface IReminder {
   price: number;
   userId: number;
 }
-
 export interface IUserPayload {
   name: string;
   surname: string;

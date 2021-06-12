@@ -27,13 +27,13 @@ export function addReminder(dispatch: Dispatch) {
       .addReminder(data)
       .then((resp) => {
         dispatch({
-          type: `${REMINDER_ACTIONS.ADD_REMINDER}_SUCCESS`,
+          type: REMINDER_ACTIONS.ADD_REMINDER_SUCCESS,
           payload: data,
         });
       })
       .catch((err) =>
         dispatch({
-          type: `${REMINDER_ACTIONS.ADD_REMINDER}_ERROR`,
+          type: REMINDER_ACTIONS.DELETE_REMINDER_ERROR,
           error: err,
         })
       );
@@ -46,13 +46,13 @@ export function updateReminder(dispatch: Dispatch) {
       .updateReminder(data)
       .then((resp) => {
         dispatch({
-          type: `${REMINDER_ACTIONS.UPDATE_REMINDER}_SUCCESS`,
+          type: REMINDER_ACTIONS.UPDATE_REMINDER_SUCCESS,
           payload: data,
         });
       })
       .catch((err) =>
         dispatch({
-          type: `${REMINDER_ACTIONS.UPDATE_REMINDER}_ERROR`,
+          type: REMINDER_ACTIONS.UPDATE_REMINDER_ERROR,
           error: err,
         })
       );
