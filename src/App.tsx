@@ -8,6 +8,7 @@ import Layout from "./modules/pages/Layout";
 import { PrivateRoute } from "./modules/PrivateRoute";
 import { useState } from "react";
 import { SpeedDialComponent } from "./modules/SpeedDial";
+import { AddReminder } from "./modules/pages/AddReminder";
 // import { loginService } from "./modules/pages/Login/service";
 
 function App() {
@@ -38,6 +39,9 @@ function App() {
               />
             </div>
             <Home timelineView={timelineView} />
+          </PrivateRoute>
+          <PrivateRoute exact path="/add-reminder">
+            <AddReminder />
           </PrivateRoute>
           <Route path="/login" component={Login} exact />
           <Route path="/register" component={Register} exact />

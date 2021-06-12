@@ -9,10 +9,11 @@ import { FC } from "react";
 import { TimelineOppositeContent } from "@material-ui/lab";
 import { Typography } from "@material-ui/core";
 import { motion } from "framer-motion";
+import "./timeline.scss";
 
 export const HomeTimeline: FC = () => {
   return (
-    <motion.div initial={{ x: "-100vh" }} animate={{ x: 0 }}>
+    <motion.div initial={{ x: "-100vh" }} animate={{ x: 0 }} className="mt-5">
       <Timeline align="alternate">
         <TimelineItem>
           <TimelineOppositeContent>

@@ -3,6 +3,8 @@ import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import SpeedDial from "@material-ui/lab/SpeedDial";
 import SpeedDialAction from "@material-ui/lab/SpeedDialAction";
 import { FC } from "react";
+import "./speedDial.scss";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,6 +38,7 @@ export const SpeedDialComponent: FC<IProps> = ({
   handleViewTimeline,
 }) => {
   const classes = useStyles();
+  const history = useHistory();
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -68,7 +71,7 @@ export const SpeedDialComponent: FC<IProps> = ({
         <SpeedDialAction
           key={"12"}
           tooltipTitle={"Add Reminder"}
-          onClick={handleTimelineView}
+          onClick={() => history.push("/add-reminder")}
           tooltipOpen={true}
           classes={classes}
           icon={"add"}
