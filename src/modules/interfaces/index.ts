@@ -6,7 +6,7 @@ export interface IUser {
   reminders: IReminder[];
 }
 
-interface IReminder {
+export interface IReminder {
   id: number;
   platformName: string;
   endDate: string;
