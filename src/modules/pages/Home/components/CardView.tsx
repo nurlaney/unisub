@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { FC } from "react";
 import "./cardview.scss";
 import { RiSettings6Line, RiDeleteBin6Line } from "react-icons/ri";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../redux/store";
 import Loader from "react-loader-spinner";
+import { useHistory } from "react-router-dom";
+import { removeReminder } from "../../Reminder/actions";
 
 export const HomeCard: FC = () => {
   const reminder = useSelector((state: RootState) => state.reminder);
+  const history = useHistory();
+  const dispatch = useDispatch();
 
+  const handleDelete = useCallback(
+    (e: any) => {
+      const payload = e.target.id;
+      const dispatchRemoveOrder = removeReminder(dispatch);
+      dispatchRemoveOrder(payload);
+      document.location.reload();
+    },
+    [dispatch]
+  );
   return (
     <motion.div
       className="row mt-5"
@@ -48,11 +61,14 @@ export const HomeCard: FC = () => {
                   fontSize={20}
                   color={"#779fa1"}
                   cursor={"pointer"}
+                  onClick={() => history.push(`/edit-reminder/${rem._id}`)}
                 />
                 <RiDeleteBin6Line
                   fontSize={20}
                   color={"red"}
                   cursor={"pointer"}
+                  id={rem._id}
+                  onClick={handleDelete}
                 />
               </div>
             </div>

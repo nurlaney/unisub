@@ -100,7 +100,7 @@ export const reminderReducer = (
       return {
         ...state,
         status: ASYNC_STATUS.SUCCESS,
-        data: action.payload,
+        data: state.data.filter((item) => item._id === action.payload),
         error: null,
       };
     case REMINDER_ACTIONS.DELETE_REMINDER_ERROR:

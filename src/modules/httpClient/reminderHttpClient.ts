@@ -16,11 +16,10 @@ export class HttpClient {
   }
 
   async update(url: string, data: any) {
-    return await axios.put(`${this.baseUrl}/${url}/${data.id}`, data);
+    return await axios.patch(`${this.baseUrl}/${url}/${data.id}`, data);
   }
 
-  async delete(url: string, id: number) {
+  async delete(url: string, id: string) {
     return await axios.delete(`${this.baseUrl}/${url}/${id}`);
   }
-
 }

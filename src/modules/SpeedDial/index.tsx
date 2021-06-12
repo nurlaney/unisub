@@ -62,7 +62,9 @@ export const SpeedDialComponent: FC<IProps> = ({
       >
         <SpeedDialAction
           key={"1"}
-          tooltipTitle={handleViewTimeline ? "See as Card" : "See as Timeline"}
+          tooltipTitle={
+            handleViewTimeline ? "Show as Card" : "Show as Timeline"
+          }
           onClick={handleTimelineView}
           tooltipOpen={true}
           classes={classes}

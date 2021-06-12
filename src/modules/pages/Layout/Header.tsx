@@ -37,13 +37,6 @@ export const Header: FC = () => {
             transition={{ duration: 0.5 }}
             className="nav-item"
           >
-            <Link to="/histories">History</Link>
-          </motion.li>
-          <motion.li
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5 }}
-            className="nav-item"
-          >
             <Link to="/login">Login</Link>
           </motion.li>
           <motion.li

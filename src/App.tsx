@@ -11,6 +11,7 @@ import { SpeedDialComponent } from "./modules/SpeedDial";
 import { AddReminder } from "./modules/pages/AddReminder";
 import { useDispatch } from "react-redux";
 import { getReminder } from "./modules/pages/Reminder/actions";
+import { EditReminder } from "./modules/pages/EditReminder";
 // import { loginService } from "./modules/pages/Login/service";
 
 function App() {
@@ -49,6 +50,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute exact path="/add-reminder">
             <AddReminder />
+          </PrivateRoute>
+          <PrivateRoute exact path="/edit-reminder/:id">
+            <EditReminder />
           </PrivateRoute>
           <Route path="/login" component={Login} exact />
           <Route path="/register" component={Register} exact />

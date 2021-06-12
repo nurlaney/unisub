@@ -19,7 +19,7 @@ export const HomeTimeline: FC = () => {
   return (
     <motion.div initial={{ x: "-100vh" }} animate={{ x: 0 }} className="mt-5">
       <Timeline align="alternate">
-        {reminder.status === "LOADING" ? (
+        {reminder.status !== "SUCCESS" && reminder.data === [] ? (
           <div
             style={{
               position: "absolute",
@@ -32,7 +32,7 @@ export const HomeTimeline: FC = () => {
           </div>
         ) : (
           reminder.data.map((rem) => (
-            <TimelineItem>
+            <TimelineItem key={rem._id}>
               <TimelineOppositeContent>
                 <Typography variant="body2" color="textSecondary">
                   {rem.expDate}

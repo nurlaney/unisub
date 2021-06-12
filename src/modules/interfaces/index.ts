@@ -1,12 +1,12 @@
 export interface IUser {
-  id?: number;
+  _id?: string;
   name: string;
   surname: string;
   email: string;
   reminders: IReminder[];
 }
 export interface IReminder {
-  id: number;
+  _id: string;
   platformName: string;
   expDate: string;
   price: number;

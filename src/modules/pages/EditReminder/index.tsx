@@ -3,20 +3,23 @@ import React from "react";
 import * as Yup from "yup";
 import { motion } from "framer-motion";
 import { TextField } from "@material-ui/core";
-import { addReminder } from "../Reminder/actions";
+import { addReminder, updateReminder } from "../Reminder/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { RootState } from "../../../redux/store";
-import { stat } from "fs";
 
-export const AddReminder = () => {
+export const EditReminder = () => {
+  const reminder = useSelector((state: RootState) => state.reminder);
+
+  const { id }: any = useParams();
+  const current = reminder.data.find((rem) => rem._id === id);
   const history = useHistory();
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      platformName: "",
-      expDate: "",
-      price: "",
+      platformName: current?.platformName,
+      expDate: current?.expDate,
+      price: current?.price,
     },
     validationSchema: Yup.object({
       platformName: Yup.string()
@@ -28,10 +31,10 @@ export const AddReminder = () => {
     onSubmit: (values) => {
       const payload = {
         ...values,
-        userId: 45,
+        id: id,
       };
-      const dispatchAddReminder = addReminder(dispatch);
-      const diss = dispatchAddReminder(payload);
+      const dispatchUpdateReminder = updateReminder(dispatch);
+      dispatchUpdateReminder(payload);
       history.push("/");
     },
   });
@@ -49,7 +52,7 @@ export const AddReminder = () => {
             transition={{ delay: 0.2, duration: "0.5" }}
             className="text-center"
           >
-            Add Reminder
+            Edit Reminder
           </motion.h4>
           <form onSubmit={formik.handleSubmit}>
             <TextField

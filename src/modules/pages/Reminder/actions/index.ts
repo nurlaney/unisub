@@ -66,7 +66,7 @@ export function removeReminder(dispatch: Dispatch) {
       .then((resp) => {
         dispatch({
           type: `${REMINDER_ACTIONS.DELETE_REMINDER}_SUCCESS`,
-          payload: Number(data),
+          payload: data.toString(),
         });
       })
       .catch((err) =>
