@@ -35,7 +35,7 @@ export const EditReminder = () => {
       };
       const dispatchUpdateReminder = updateReminder(dispatch);
       dispatchUpdateReminder(payload);
-      history.push("/");
+      window.location.href = "http://localhost:3000/";
     },
   });
   return (

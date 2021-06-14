@@ -33,6 +33,7 @@ export const AddReminder = () => {
       const dispatchAddReminder = addReminder(dispatch);
       const diss = dispatchAddReminder(payload);
       history.push("/");
+      window.location.href = "http://localhost:3000/";
     },
   });
   return (
